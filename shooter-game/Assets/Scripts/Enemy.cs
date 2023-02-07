@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<Player>();
+        int enemyLayer = LayerMask.NameToLayer("Enemies");
+        gameObject.layer = enemyLayer;
+        gameObject.transform.GetChild(0).GetComponent<Transform>().gameObject.layer = enemyLayer;
     }
 
     void FixedUpdate()

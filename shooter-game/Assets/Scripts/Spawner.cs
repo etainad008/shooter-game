@@ -23,7 +23,6 @@ public class Spawner : MonoBehaviour
 
     void EnemySpawn()
     {
-        
         Instantiate(enemy, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
     }
 }

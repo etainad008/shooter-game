@@ -18,7 +18,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] private float spring = 4.5f;
     [SerializeField] private float damper = 7f;
     [SerializeField] private float massScale = 4.5f;
-    private float maxSwingDistance = 25f;
+    [SerializeField] private float maxSwingDistance = 25f;
     private Vector3 swingPoint;
     private SpringJoint joint;
 
@@ -53,8 +53,11 @@ public class GrapplingGun : MonoBehaviour
     }
     void DrawRope()
     {
-        lineRenderer.SetPosition(0, gunTip.position);
-        lineRenderer.SetPosition(1, swingPoint);
+        if(joint != null)
+        {
+            lineRenderer.SetPosition(0, gunTip.position);
+            lineRenderer.SetPosition(1, swingPoint);
+        }
     }
     private void StartSwing()
     {
